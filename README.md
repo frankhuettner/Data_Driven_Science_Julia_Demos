@@ -21,5 +21,5 @@ Note, this is somewhat experimental. **Be patient**, this takes some time to loa
 * [CH01_SEC04_1_Linear.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos_Ch1%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC04_1_Linear.jl%253Fraw%253Dtrue)
 * [CH01_SEC04_3_Housing.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos_Ch1%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC04_3_Housing.jl%253Fraw%253Dtrue)
 * [CH01_SEC05_1_PCAGaussian.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos_Ch1%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC05_1_PCAGaussian.jl%253Fraw%253Dtrue)
-<!---   * [CH01_SEC09_Tensor.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos_Ch1%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC09_Tensor.jl%253Fraw%253Dtrue)
+* [CH01_SEC09_Tensor.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos_Ch1%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC09_Tensor.jl%253Fraw%253Dtrue)
 

@@ -11,7 +11,7 @@ http://databookuw.com/
 
 Please cite this book when using this code/data. 
 
-All **errors** in the Julia code **go to [Frank Huettner](https://frankhuettner.de).** No guarantee for the functionality can is given.
+All **errors** in the Julia code **go to [Frank Huettner](https://frankhuettner.de).** No guarantee for the functionality can be/is given.
 
 ## View some of the notebooks on binder 
 Note, this is somewhat experimental. **Be patient**, this takes some time to load as it installs some of Julia from scratch (Just install [Julia](https://julialang.org/downloads/) on your system if you want performance)

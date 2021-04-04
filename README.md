@@ -24,5 +24,5 @@ Note, this is somewhat experimental. **Be patient**, this takes a few minutes to
 * [CH01_SEC09_Tensor.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC09_Tensor.jl%253Fraw%253Dtrue)
 
 ## To Do
-* Wavelets for Chapter 2
 * The remaining Chapters
+* Wavelets for Chapter 2 (I skip this for now)

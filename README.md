@@ -23,6 +23,10 @@ Note, this is somewhat experimental. **Be patient**, this takes a few minutes to
 * [CH01_SEC05_1_PCAGaussian.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC05_1_PCAGaussian.jl%253Fraw%253Dtrue)
 * [CH01_SEC09_Tensor.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC09_Tensor.jl%253Fraw%253Dtrue)
 
+## What about Jupyter?
+Well, most of the stuff is also possible in Jupyter, but Pluto is more fun IMHO. If you wonder whether you should give Julia a chance and would like to stick to Jupyter, then have a look at this: [Ch2§3 FFT & Burgers equation](https://nbviewer.jupyter.org/github/frankhuettner/Data_Driven_Science_Julia_Demos/blob/main/BinderVersion/CH02_SEC03_3_FFTBurgers.ipynb) (Notice how Unicode symbols make differential equations much more readable.)
+
+
 ## To Do
 * The remaining Chapters
 * Wavelets for Chapter 2 (I skip this for now)

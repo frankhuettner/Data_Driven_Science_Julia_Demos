@@ -2,7 +2,8 @@ This repo contains [Pluto](https://github.com/fonsp/Pluto.jl) notebooks with [Ju
 
 ## Data Driven Science JULIA Demos
 
-<img src="http://www.databookuw.com/files/stacks-image-5bffc53-882x1200.png" alt="Data Driven Book Cover" width="100"/>
+[<img src="http://www.databookuw.com/files/stacks-image-5bffc53-882x1200.png" alt="Data Driven Book Cover" width="100"/>](http://databookuw.com/databook.pdf)
+
 Data Driven Science & Engineering: Machine Learning, Dynamical Systems, and Control  
 by S. L. Brunton and J. N. Kutz  
 Cambridge Textbook, 2019  

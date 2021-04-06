@@ -29,4 +29,4 @@ Well, most of the stuff is also possible in Jupyter, but Pluto is more fun IMHO.
 
 ## To Do
 * The remaining Chapters
-* Wavelets for Chapter 2 (I skip this for now)
+* Wavelets for Chapter 2 in pure Julia (I reuse the Python code via PyCall for now)

@@ -13,7 +13,7 @@ Please cite this book when using this code/data.
 
 All **errors** in the Julia code **go to [Frank Huettner](https://frankhuettner.de).** No guarantee for the functionality can be/is given.
 
-## You can test some of the notebooks on binder (the others are in the [CH01](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH01), [CH02](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH02), and [CH03](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH03) folders)
+### Experimental: You can test some of the notebooks on binder (the others are in the [CH01](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH01), [CH02](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH02), and [CH03](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH03) folders)
 Note, this is somewhat experimental. **Be patient**, this takes a few minutes to load as it installs some of Julia from scratch (Just install [Julia](https://julialang.org/downloads/) on your system if you want the real performance)
 
 * [CH01_SEC02.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC02.jl%253Fraw%253Dtrue)
@@ -23,5 +23,5 @@ Note, this is somewhat experimental. **Be patient**, this takes a few minutes to
 * [CH01_SEC05_1_PCAGaussian.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC05_1_PCAGaussian.jl%253Fraw%253Dtrue)
 * [CH01_SEC09_Tensor.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC09_Tensor.jl%253Fraw%253Dtrue)
 
-## What about Jupyter?
+### What about Jupyter?
 Well, most of the stuff is also possible in Jupyter, but Pluto is more fun IMHO. If you wonder whether you should give Julia a chance and would like to stick to Jupyter, then have a look at this: [Ch2§3 FFT & Burgers equation](https://nbviewer.jupyter.org/github/frankhuettner/Data_Driven_Science_Julia_Demos/blob/main/BinderVersion/CH02_SEC03_3_FFTBurgers.ipynb)

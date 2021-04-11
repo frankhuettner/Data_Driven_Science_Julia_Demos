@@ -71,12 +71,15 @@ begin
 end
 
 # ╔═╡ a292e9e6-8f05-11eb-3bc1-a7bf6b8efcaf
-md"[Frank Huettner](https://frankhuettner.de) has created this Pluto notebook with Julia code and all errors are on him. It mimics the [Matlab code here](https://github.com/dylewsky/Data_Driven_Science_Python_Demos), and it is intended as a companion to chapter 1 of the book:  
-[Data Driven Science & Engineering: Machine Learning, Dynamical Systems, and Control  
-by S. L. Brunton and J. N. Kutz, Cambridge Textbook, 2019, Copyright 2019, All Rights Reserved]
-(http://databookuw.com/). 
-Please cite this book when using this code/data. 
-No guarantee can be given for the functionality of this code."
+let # Loading the disclaimer
+	url = "https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/raw/main/disclaimer.md"
+	datafile = url |> download 
+    datafile = open(datafile,"r")
+    lines = readlines(datafile)
+    close(datafile)
+    lines[1]
+	Markdown.parse(lines[1]) 
+end
 
 # ╔═╡ Cell order:
 # ╠═62f05a52-86aa-11eb-2388-2b88bd30ab0d

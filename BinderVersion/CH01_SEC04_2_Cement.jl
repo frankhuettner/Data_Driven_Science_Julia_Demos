@@ -66,12 +66,15 @@ end
 x2 = pinv(A)*b
 
 # ╔═╡ 58023c00-8f62-11eb-3b50-af048224f997
-md"[Frank Huettner](https://frankhuettner.de) has created this Pluto notebook with Julia code and all errors are on him. It mimics the [Matlab code here](https://github.com/dylewsky/Data_Driven_Science_Python_Demos), and it is intended as a companion to chapter 1 of the book:  
-[Data Driven Science & Engineering: Machine Learning, Dynamical Systems, and Control  
-by S. L. Brunton and J. N. Kutz, Cambridge Textbook, 2019, Copyright 2019, All Rights Reserved]
-(http://databookuw.com/). 
-Please cite this book when using this code/data. 
-No guarantee can be given for the functionality of this code."
+let # Loading the disclaimer
+	url = "https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/raw/main/disclaimer.md"
+	datafile = url |> download 
+    datafile = open(datafile,"r")
+    lines = readlines(datafile)
+    close(datafile)
+    lines[1]
+	Markdown.parse(lines[1]) 
+end
 
 # ╔═╡ Cell order:
 # ╠═8b2513e8-8e9b-11eb-3eaf-1dbbb150f4ed

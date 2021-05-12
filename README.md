@@ -1,6 +1,6 @@
 This repo contains [Pluto](https://github.com/fonsp/Pluto.jl) notebooks with [Julia](https://en.wikipedia.org/wiki/Julia_(programming_language)) code (a [free and open source language](https://github.com/JuliaLang/julia/blob/master/LICENSE.md) that is [easy to use](https://www.nature.com/articles/d41586-019-02310-3) and [fast](https://julialang.org/benchmarks/)). The code is along the lines of the [Matlab code here](https://github.com/dynamicslab/databook_matlab). It is intended as a companion to the book:  
 
-## Data Driven Science JULIA Demos (Chapters 1-3)
+## Data Driven Science JULIA Demos (Chapters 1-4)
 
 [<img src="http://www.databookuw.com/files/stacks-image-5bffc53-882x1200.png" alt="Data Driven Book Cover" width="100"/>](http://databookuw.com/databook.pdf)
 

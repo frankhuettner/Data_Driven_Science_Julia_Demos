@@ -13,7 +13,7 @@ Please cite this book when using this code/data.
 
 All **errors** in the Julia code **go to [Frank Huettner](https://frankhuettner.de).** No guarantee for the functionality can be/is given.
 
-**Experimental:** You can test some of the notebooks on binder (the others are in the [CH01](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH01), [CH02](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH02), .. folders)
+**Experimental:** You can test some of the notebooks on binder (the others are in the [CH01](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH01), [CH02](https://github.com/frankhuettner/Data_Driven_Science_Julia_Demos/tree/main/CH02),... folders)
 Note, this is somewhat experimental. **Be patient**, this takes a few minutes to load as it installs some of Julia from scratch (Just install [Julia](https://julialang.org/downloads/) on your system if you want the real performance)
 
 * [CH01_SEC02.jl](https://binder.plutojl.org/open?url=https%253A%252F%252Fgithub.com%252Ffrankhuettner%252FData_Driven_Science_Julia_Demos%252Fblob%252Fmain%252FBinderVersion%252FCH01_SEC02.jl%253Fraw%253Dtrue)

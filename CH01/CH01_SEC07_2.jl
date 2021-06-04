@@ -1,21 +1,21 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.14.7
 
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 49d91148-8b74-11eb-38f3-fba664506192
+# ╔═╡ 677d292c-2b4c-48db-a767-885af35fe294
 begin
-	using Images
-	using LinearAlgebra
-	using Plots
-	using Rotations
+    import Pkg
+    Pkg.activate(mktempdir())
+    Pkg.add(["Plots", "Images", "LinearAlgebra", "Rotations"]) 
+    using Plots, Images, LinearAlgebra, Rotations
 end
 
 # ╔═╡ c1c9ce1a-8b77-11eb-2140-9d8dcb15c785
 begin
 	n = 1000  # 1000 x 1000 square
-	q = n÷4
+	q = n÷4  # Integer division tab-complete \div to get ÷, which is like div()
 	
 	X = zeros(n,n)
 	X[q:3*q, q-1:3*q] .= 1
@@ -59,7 +59,7 @@ let # Loading the disclaimer
 end
 
 # ╔═╡ Cell order:
-# ╠═49d91148-8b74-11eb-38f3-fba664506192
+# ╠═677d292c-2b4c-48db-a767-885af35fe294
 # ╠═c1c9ce1a-8b77-11eb-2140-9d8dcb15c785
 # ╠═87b80550-8b79-11eb-2567-13f3db82f0fc
 # ╠═eb78e862-8b7d-11eb-1f97-ef0b8fc9dccf

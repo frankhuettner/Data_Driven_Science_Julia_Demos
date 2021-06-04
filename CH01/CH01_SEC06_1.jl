@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.14.7
 
 using Markdown
 using InteractiveUtils
@@ -13,19 +13,20 @@ macro bind(def, element)
     end
 end
 
-# ╔═╡ deb4b908-8a17-11eb-3fec-95c454ba6980
+# ╔═╡ 004d70db-c9a2-4302-8b92-41b2b80272f3
 begin
-	using Images
-	using CSV
-	using DataFrames
-	using LinearAlgebra
-	using Plots
-	using MAT 	# used for reading *.mat files
-	using PlutoUI
+    import Pkg
+    Pkg.activate(mktempdir())
+    Pkg.add(["Plots", "Images", "LinearAlgebra",  "PlutoUI"]) 
+    using Plots, Images, LinearAlgebra, MAT, PlutoUI
+	
+	Pkg.add("MAT") # used for reading *.mat files
+	using MAT 	
+	
 end
 
 # ╔═╡ 67e80ec4-8a18-11eb-3c07-699266a9e1b3
-mat_contents = matread("../DATA/allFaces.mat")	# import function from MAT.jl
+mat_contents = matread("allFaces.mat")	# import function from MAT.jl
 
 # ╔═╡ 81b0dec0-8a18-11eb-32aa-53231cb2bce8
 begin
@@ -34,13 +35,13 @@ begin
 	n = convert(Int, mat_contents["n"])
 	nfaces = convert.(Int, mat_contents["nfaces"])
 	
-	allPersons = zeros(n*6,m*6)
+	allPersons = zeros(n*6, m*6)
 end
 
 # ╔═╡ 8412e938-8a1b-11eb-3c33-393e90ef1434
-let 
+let    # "let" keeps the variables local
 	count = 1	
-	for i=1:6
+	for i=1:6 	# i is not the imaginary number im but can be used as index 
 		for j=1:6
 			allPersons[1+(i-1)*n:i*n, 1+(j-1)*m:j*m] = 	
 				reshape(faces[:,1+sum(nfaces[1:count-1])],n,m);
@@ -85,11 +86,15 @@ let # Loading the disclaimer
 	Markdown.parse(lines[1]) 
 end
 
+# ╔═╡ f28304aa-b172-47b7-a548-82daa29f80b9
+typeof(im)
+
 # ╔═╡ Cell order:
-# ╠═deb4b908-8a17-11eb-3fec-95c454ba6980
+# ╠═004d70db-c9a2-4302-8b92-41b2b80272f3
 # ╠═67e80ec4-8a18-11eb-3c07-699266a9e1b3
 # ╠═81b0dec0-8a18-11eb-32aa-53231cb2bce8
 # ╠═8412e938-8a1b-11eb-3c33-393e90ef1434
 # ╠═846d2ff8-8a28-11eb-3512-5fe4d132f90e
 # ╠═4c3a49ca-8a20-11eb-3208-55c7ed39a41c
 # ╟─331a33a8-8f05-11eb-2c79-757b13b2426d
+# ╠═f28304aa-b172-47b7-a548-82daa29f80b9

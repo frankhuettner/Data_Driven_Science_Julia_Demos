@@ -1,25 +1,23 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.14.7
 
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ ffafe880-8b8c-11eb-3dc8-eb9b4af779c3
+# ╔═╡ adea421b-ccec-4ec5-ad92-d028e9545075
 begin
-	using Images
-	using LinearAlgebra
-	using Statistics
-	using Plots
-	using MAT
-	using PlutoUI
-	using Random
+    import Pkg; Pkg.activate(mktempdir())
+    Pkg.add(["Plots", "Images", "LinearAlgebra", "Rotations", 
+			 "PlutoUI", "Statistics", "MAT", "Random"]) 
+    using Plots, Images, LinearAlgebra, Rotations, 
+		  PlutoUI, Statistics, MAT, Random
 end
 
 # ╔═╡ 56c093c2-8ba3-11eb-3c0c-af74e33c406a
-function sample_cols(X,r,p)
+function sample_cols(X, r, p)
 	# Sample r+p columns from X
 	ny = size(X,2)
-	P = sort!(rand(1:ny,r+p))
+	P = sort!(rand(1:ny, r+p))
 	return view(X, :, P)
 end
 
@@ -51,7 +49,7 @@ end
 
 # ╔═╡ 6be0657a-8ba1-11eb-0b55-ad04c71a3ee3
 begin
-	A = load("../DATA/jupiter.jpg")
+	A = load("jupiter.jpg")
 	X = Gray.(A) |> Matrix{Float64} # Convert RGB -> grayscale -> Float Array
 	
 	U, S, V = svd(X) # Deterministic SVD	
@@ -60,7 +58,7 @@ begin
 	q = 1   # Power iterations
 	p = 5   # Oversampling parameter
 	
-	rU, rS, rV = rSVD(X,r,q,p)
+	rU, rS, rV = rSVD(X, r, q, p)
 	
 	## Reconstruction
 	XSVD = U[:,1:r] * Diagonal(S[1:r]) * V'[1:r,:] # SVD approximation
@@ -83,7 +81,7 @@ let
 	S = range(1, 0; length=100)
 	X = U * Diagonal(S) * V'
 	
-	plt = plot(S,LineWidth=2, markershape=:o,label="SVD")
+	plt = plot(S, LineWidth=2, markershape=:o, label="SVD")
 	Z = copy(X)
 	for q in 1:5
 		Z = iterate_Z(Z,X,1)
@@ -105,7 +103,7 @@ let # Loading the disclaimer
 end
 
 # ╔═╡ Cell order:
-# ╠═ffafe880-8b8c-11eb-3dc8-eb9b4af779c3
+# ╠═adea421b-ccec-4ec5-ad92-d028e9545075
 # ╠═56c093c2-8ba3-11eb-3c0c-af74e33c406a
 # ╠═5d4b94ae-8baf-11eb-22b8-35e46fddc59f
 # ╠═5493d076-8ba8-11eb-3513-a74fb2a374ed

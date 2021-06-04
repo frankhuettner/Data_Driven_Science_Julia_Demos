@@ -1,16 +1,15 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.14.7
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ 70e1a9c8-86cc-11eb-290e-0b52ba155bc2
 begin
-	using CSV
-	using DataFrames
-	using LinearAlgebra
-	using Plots
-	using Statistics
+    import Pkg
+    Pkg.activate(mktempdir())
+    Pkg.add(["Plots", "LinearAlgebra", "CSV", "DataFrames", "Statistics"])
+    using Plots, LinearAlgebra, CSV, DataFrames, Statistics
 end
 
 # ╔═╡ 959c323a-86cf-11eb-2f14-f9f4343da3c0
@@ -28,11 +27,11 @@ end
 
 # ╔═╡ c3c2962c-86cf-11eb-3445-55f0413a46d6
 # Creat csv file
-dat2csv("../DATA/housing.data", "../DATA/housing.csv")
+dat2csv("housing.data", "housing.csv")
 
 # ╔═╡ 2c9e135e-86cd-11eb-34b5-c54269f3cc05
 # loading data
-df = CSV.File("../DATA/housing.csv",  header=false) |> DataFrame
+df = CSV.File("housing.csv",  header=false) |> DataFrame
 
 # ╔═╡ ef933520-86cf-11eb-219a-a329c08311ae
 b = df[:,end] # housing values in $1000s
@@ -42,6 +41,7 @@ A = df[:,1:end-1] |> Matrix; # other factors
 
 # ╔═╡ e36fa4f4-8eb5-11eb-12ee-15a338fb5fc0
 # This is how we can save the data in a Julia Data format (JLD):
+# Pkg.add("JLD")
 # using JLD
 # save("../DATA/housing.jld", "b", b, "A", A)
 
@@ -55,9 +55,12 @@ A_padded = hcat(A, o); # Pad with ones for nonzero offset
 begin
 	# Solve Ax=b using SVD
 	# Note that the book uses the Matlab-specific "regress" command
-	U, σs, V = svd(A_padded)
-	x = V * inv(Diagonal(σs)) * U' * b
+	U, Σ, V = svd(A_padded)
+	x = V * inv(Diagonal(Σ)) * U' * b
 end
+
+# ╔═╡ 2c9e3ef0-995e-4124-9d66-4d201dd5a2e9
+plot(b, label="Housing Value") # True relationship
 
 # ╔═╡ 609e5180-86d4-11eb-3cf9-cb02216cc259
 begin
@@ -94,8 +97,8 @@ begin
 			A_trans[i,j] = (A_trans[i,j] - col_mean) / col_std
 		end
 	end
-	U_trans, σs_trans, V_trans = svd(A_trans)
-	x_trans = pinv(A_trans)*b # Direct usage of pseudo-inverse via pinv
+	U_trans, Σ_trans, V_trans = svd(A_trans)
+	x_trans = pinv(A_trans) * b # Direct usage of pseudo-inverse via pinv
 	# The book uses b_sorted instead of b
 	
 	gr() # plotly() seems to have issues with bar charts
@@ -126,6 +129,7 @@ end
 # ╠═d6608b6a-86d2-11eb-0e00-496c54396cab
 # ╠═faadf232-86d2-11eb-2df1-9f609410810d
 # ╠═e198a8ae-86d3-11eb-3f1c-abf6014c9cbd
+# ╠═2c9e3ef0-995e-4124-9d66-4d201dd5a2e9
 # ╠═609e5180-86d4-11eb-3cf9-cb02216cc259
 # ╠═eb8c6b5e-86d6-11eb-33df-2136c66478f3
 # ╠═6303f634-86e1-11eb-0c07-13f10471bad1

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.14.7
 
 using Markdown
 using InteractiveUtils
@@ -13,13 +13,11 @@ macro bind(def, element)
     end
 end
 
-# ╔═╡ 8a2b5804-8de1-11eb-34d5-71b3f46885c3
+# ╔═╡ 752cc9f6-4790-4e46-9b93-9b3c5415896e
 begin
-	using LinearAlgebra
-	using Plots
-	using PlutoUI
-	using TensorToolbox
-	using LaTeXStrings 
+    import Pkg; Pkg.activate(mktempdir())
+    Pkg.add(["Plots", "TensorToolbox", "LinearAlgebra", "LaTeXStrings", "PlutoUI"]) 
+    using Plots, TensorToolbox, LinearAlgebra, LaTeXStrings, PlutoUI
 end
 
 # ╔═╡ 9b69950e-8de1-11eb-32f5-2749cfc88e6e
@@ -31,28 +29,28 @@ begin
 end
 
 # ╔═╡ 198cee96-8de6-11eb-34b1-efa575881f3f
-@bind t_plotted Slider(t, show_value=true)
+@bind t_slider Slider(t, show_value=true)
 
 # ╔═╡ 1aaba872-8de5-11eb-18e1-eb3285bddb6d
 begin
-	f(x, y) = f(x,y,t_plotted)
+	f(x, y) = f(x,y,t_slider)
 	plot_f = surface(x, y, f, aspect_ratio=:equal)
 end
 
 # ╔═╡ dd7a0d14-8de8-11eb-2dcc-c16fc1710e10
 # create tensor ℳ
-begin
-	ℳ = [f(i,j,k) for i=x, j=y, k=t]    # type \scrM followed by TAB-key to create ℳ
-	size(ℳ)
-end
+ℳ = [f(i,j,k) for i=x, j=y, k=t]    # type \scrM followed by TAB-key to create ℳ
+
+# ╔═╡ 3e7bfc8c-9548-4405-ac60-aceb857a5e00
+size(ℳ)
 
 # ╔═╡ 275eaf6a-8def-11eb-393d-8750f6ebd9fe
 # factorization of rank 2, like parafac(ℳ,2) in Matlab 
-model = cp_als(ℳ,2,maxit=2500,init="nvecs" ) 
+model = cp_als(ℳ, 2, maxit=2500, init="nvecs" ) 
 
 # ╔═╡ 153550f8-8e41-11eb-018c-37c19a9f9ded
 # access the factors via model.fmat
-A,B,C = model.fmat # like fac2let(model)
+A, B, C = model.fmat # like fac2let(model)
 
 # ╔═╡ 62fb9c7e-8deb-11eb-2dd0-ef74620d90df
 begin
@@ -77,11 +75,12 @@ let # Loading the disclaimer
 end
 
 # ╔═╡ Cell order:
-# ╠═8a2b5804-8de1-11eb-34d5-71b3f46885c3
+# ╠═752cc9f6-4790-4e46-9b93-9b3c5415896e
 # ╠═9b69950e-8de1-11eb-32f5-2749cfc88e6e
 # ╠═198cee96-8de6-11eb-34b1-efa575881f3f
 # ╠═1aaba872-8de5-11eb-18e1-eb3285bddb6d
 # ╠═dd7a0d14-8de8-11eb-2dcc-c16fc1710e10
+# ╠═3e7bfc8c-9548-4405-ac60-aceb857a5e00
 # ╠═275eaf6a-8def-11eb-393d-8750f6ebd9fe
 # ╠═153550f8-8e41-11eb-018c-37c19a9f9ded
 # ╠═62fb9c7e-8deb-11eb-2dd0-ef74620d90df

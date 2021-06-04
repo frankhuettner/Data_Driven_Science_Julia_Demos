@@ -1,15 +1,20 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.14.7
 
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 07cb68e0-8594-11eb-094b-3f8dcc6045a7
+# ╔═╡ ca25d5cf-0a8b-4ddb-bca5-f2180e0b2625
 begin
-	using LinearAlgebra
-	using Plots
-	plotly()
+    import Pkg
+    Pkg.activate(mktempdir())
+    Pkg.add(["Plots", "LinearAlgebra"])
+    using Plots, LinearAlgebra
 end
+
+# ╔═╡ 07cb68e0-8594-11eb-094b-3f8dcc6045a7
+# We use the plotly() backend for plotty, which is not as fast as the standard gr() backend but it allows for some interactive
+plotly()
 
 # ╔═╡ 4f4db364-8594-11eb-1ff7-55f5196879e9
 begin
@@ -38,18 +43,19 @@ end
 # ╔═╡ fc0a12d6-85f2-11eb-1c70-6151fb235cad
 begin 
 	n = 100
-	u = range(0,stop=2*π,length=n);
-	v = range(0,stop=π,length=n);
+	u = range(0, stop=2*π, length=n)
+	v = range(0, stop=π, length=n)
 	
-	x = cos.(u) * sin.(v)';
-	y = sin.(u) * sin.(v)';
-	z = ones(n) * cos.(v)';
+	x = cos.(u) * sin.(v)'
+	y = sin.(u) * sin.(v)'
+	z = ones(n) * cos.(v)'
 	
 	# Plotting the sphere
 	lims = (-2, 2)
 	plt1 = surface(x,y,z,
 		alpha=0.6, c =:jet1, xlim=lims, ylim=lims, zlim=lims, legend=false) 
-	wireframe!(plt1, x,y,z)
+	wireframe!(plt1, x,y,z) 
+	#The bang! version of a function typically modifies and object. Here, it adds a wireframe to the plot  plt1
 end
 
 # ╔═╡ 1189dc9a-8602-11eb-27f7-c129afee0a29
@@ -71,7 +77,8 @@ begin
 	# Plotting transformed sphere
 	plt2 = surface(xR,yR,zR, 
 		alpha=0.6, c =:jet1, xlim=lims, ylim=lims, zlim=lims,legend=false) 
-	wireframe!(plt2, xR,yR,zR) 
+	wireframe!(plt2, xR,yR,zR)
+	# Putting both plots next to each other
 	plot(plt1,plt2, layout=(1,2))
 end
 
@@ -87,6 +94,7 @@ let # Loading the disclaimer
 end
 
 # ╔═╡ Cell order:
+# ╠═ca25d5cf-0a8b-4ddb-bca5-f2180e0b2625
 # ╠═07cb68e0-8594-11eb-094b-3f8dcc6045a7
 # ╠═4f4db364-8594-11eb-1ff7-55f5196879e9
 # ╠═fc0a12d6-85f2-11eb-1c70-6151fb235cad

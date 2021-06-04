@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.14.7
 
 using Markdown
 using InteractiveUtils
@@ -13,19 +13,17 @@ macro bind(def, element)
     end
 end
 
-# ╔═╡ 9e4f5c7a-8b86-11eb-0b16-4124437c66f4
+# ╔═╡ aa180ca0-8209-4f6d-a251-30d43a27a677
 begin
-	using Images
-	using LinearAlgebra
-	using Plots
-	using Rotations
-	using PlutoUI
+    import Pkg; Pkg.activate(mktempdir())
+    Pkg.add(["Plots", "Images", "LinearAlgebra", "Rotations", "PlutoUI"]) 
+    using Plots, Images, LinearAlgebra, Rotations, PlutoUI
 end
 
 # ╔═╡ b809a77e-8b86-11eb-2d75-9b298610bdd6
 begin
 	n = 1000  # 1000 x 1000 square
-	q = n÷4
+	q = n ÷ 4
 	nAngles = 12
 	X = zeros(n,n)
 	X[q:3*q, q-1:3*q] .= 1	
@@ -41,9 +39,9 @@ md"Move the slider to rotate the Matrix"
 begin
 	X_rot = imrotate(X, angle * π/4/nAngles, axes(X))
 	X_rot = (X_rot.>0)
-	F_rot = svd(X_rot) # We will just need F_rot.S 
-	plt_Mat = plot(Gray.( X_rot)) # colorview(Gray, X_rot)
-	plt_Σs = plot(F_rot.S, yaxis=:log, markershape=:o, lw=1.5, legend=false)
+	U, Σ, V = svd(X_rot) # We just need F_rot.S 
+	plt_Mat = plot(Gray.( X_rot)) 
+	plt_Σs = plot(Σ, yaxis=:log, markershape=:o, lw=1.5, legend=false)
 	plot(plt_Mat, plt_Σs, layout=(1,2))
 end
 
@@ -59,7 +57,7 @@ let # Loading the disclaimer
 end
 
 # ╔═╡ Cell order:
-# ╠═9e4f5c7a-8b86-11eb-0b16-4124437c66f4
+# ╠═aa180ca0-8209-4f6d-a251-30d43a27a677
 # ╠═b809a77e-8b86-11eb-2d75-9b298610bdd6
 # ╟─a7b68aea-8b8b-11eb-15c6-3f8f5eb9a68b
 # ╟─235118f8-8b89-11eb-1664-fb3a4d0aaaee
